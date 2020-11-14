@@ -4,9 +4,9 @@ import java.io.FileWriter;
 import java.util.List;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;	// initialize to 0
-	private static int rashCount = 0;		// initialize to 0
-	private static int pupilCount = 0;		// initialize to 0
+	private static int headacheCount = 0;
+	private static int rashCount = 0;
+	private static int pupilCount = 0;
 	
 	public static void main(String args[]) throws Exception {
 		ISymptomReader reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
@@ -26,7 +26,6 @@ public class AnalyticsCounter {
 			}
 		}
 		
-		// next generate output
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + headacheCount + "\n");
 		writer.write("rash: " + rashCount + "\n");
