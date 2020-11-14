@@ -1,19 +1,20 @@
 package com.hemebiotech.analytics;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+/**
+ * Application aiming at counting a symptoms list.
+ * If 2 arguments are provided, they are used as an input and an output filenames.
+ *
+ */
 public class AnalyticsCounter {
-	
+
 	public static void main(String args[]) throws Exception {
-		ISymptomReader reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
-		List<String> symptoms = reader.GetSymptoms();
-		
-		ISymptomCounter counter = new CountSymptomDataFromList();
-		Map<String, Long> countedSymptoms = counter.countSymptoms(symptoms);
-		
-		ISymptomWriter writer = new WriteSymptomDataFromMap("result.out");
-		writer.writeSymptoms(countedSymptoms);
+		String inputFilename = "Project02Eclipse/symptoms.txt";
+		String outputFilename = "result.out";
+		if(args.length == 2) {
+			inputFilename = args[0];
+			outputFilename = args[1];
+		}
+		ISymptomProcessor processor = new SymptomDataProcessor(inputFilename, outputFilename);
+		processor.processSymptoms();
 	}
 }
