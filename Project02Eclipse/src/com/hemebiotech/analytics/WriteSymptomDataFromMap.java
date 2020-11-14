@@ -14,9 +14,9 @@ public class WriteSymptomDataFromMap implements ISymptomWriter {
 	}
 
 	@Override
-	public void writeSymptoms(Map<String, Integer> countedSymptoms) throws IOException {
+	public void writeSymptoms(Map<String, Long> countedSymptoms) throws IOException {
 		FileWriter writer = new FileWriter(outputFilename);
-		for ( Entry<String, Integer> symptomEntry : countedSymptoms.entrySet()) {
+		for ( Entry<String, Long> symptomEntry : countedSymptoms.entrySet()) {
 			writer.write(symptomEntry.getKey() + ": " + symptomEntry.getValue() + "\n");
 		}
 		writer.close();
