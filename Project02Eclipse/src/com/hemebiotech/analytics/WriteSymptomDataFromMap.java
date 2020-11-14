@@ -3,6 +3,7 @@ package com.hemebiotech.analytics;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class WriteSymptomDataFromMap implements ISymptomWriter {
 
@@ -15,9 +16,9 @@ public class WriteSymptomDataFromMap implements ISymptomWriter {
 	@Override
 	public void writeSymptoms(Map<String, Integer> countedSymptoms) throws IOException {
 		FileWriter writer = new FileWriter(outputFilename);
-		writer.write("headache: " + countedSymptoms.get("headache") + "\n");
-		writer.write("rash: " + countedSymptoms.get("rash") + "\n");
-		writer.write("dialated pupils: " + countedSymptoms.get("pupils") + "\n");
+		for ( Entry<String, Integer> symptomEntry : countedSymptoms.entrySet()) {
+			writer.write(symptomEntry.getKey() + ": " + symptomEntry.getValue() + "\n");
+		}
 		writer.close();
 	}
 
