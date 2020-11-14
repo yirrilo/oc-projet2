@@ -1,6 +1,5 @@
 package com.hemebiotech.analytics;
 
-import java.io.FileWriter;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,10 +13,7 @@ public class AnalyticsCounter {
 		ISymptomCounter counter = new CountSymptomDataFromList();
 		Map<String, Integer> countedSymptoms = counter.countSymptoms(symptoms);
 		
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + countedSymptoms.get("headache") + "\n");
-		writer.write("rash: " + countedSymptoms.get("rash") + "\n");
-		writer.write("dialated pupils: " + countedSymptoms.get("pupils") + "\n");
-		writer.close();
+		ISymptomWriter writer = new WriteSymptomDataFromMap("result.out");
+		writer.writeSymptoms(countedSymptoms);
 	}
 }
