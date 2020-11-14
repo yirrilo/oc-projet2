@@ -27,7 +27,7 @@ public class WriteSymptomDataFromMap implements ISymptomWriter {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public void writeSymptoms(Map<String, Integer> countedSymptoms) throws IOException {
+	public void writeSymptoms(Map<String, Long> countedSymptoms) throws IOException {
 		List<String> content = countedSymptoms.entrySet().stream()
 				.map( entry -> entry.getKey() + ": " + entry.getValue())
 				.collect(Collectors.toList());

@@ -11,7 +11,7 @@ public class AnalyticsCounter {
 		List<String> symptoms = reader.GetSymptoms();
 		
 		ISymptomCounter counter = new CountSymptomDataFromList();
-		Map<String, Integer> countedSymptoms = counter.countSymptoms(symptoms);
+		Map<String, Long> countedSymptoms = counter.countSymptoms(symptoms);
 		
 		ISymptomWriter writer = new WriteSymptomDataFromMap("result.out");
 		writer.writeSymptoms(countedSymptoms);

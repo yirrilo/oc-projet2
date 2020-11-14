@@ -13,6 +13,6 @@ public interface ISymptomWriter {
 	 * @param countedSymptoms the map to be written.
 	 * @throws IOException
 	 */
-	void writeSymptoms(Map<String, Integer> countedSymptoms) throws IOException;
+	void writeSymptoms(Map<String, Long> countedSymptoms) throws IOException;
 
 }
