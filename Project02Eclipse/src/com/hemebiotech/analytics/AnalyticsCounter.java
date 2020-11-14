@@ -11,25 +11,8 @@ public class AnalyticsCounter {
 		ISymptomReader reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 		List<String> symptoms = reader.GetSymptoms();
 		
-		Map<String, Integer> countedSymptoms = new HashMap<>();
-		for (String symptom : symptoms) {
-			System.out.println("symptom from file: " + symptom);
-			if (symptom.equals("headache")) {
-				Integer count = countedSymptoms.get("headache");
-				count = count == null ? 1 : count + 1;
-				countedSymptoms.put("headache", count);
-			}
-			else if (symptom.equals("rash")) {
-				Integer count = countedSymptoms.get("rash");
-				count = count == null ? 1 : count + 1;
-				countedSymptoms.put("rash", count);
-			}
-			else if (symptom.contains("pupils")) {
-				Integer count = countedSymptoms.get("pupils");
-				count = count == null ? 1 : count + 1;
-				countedSymptoms.put("pupils", count);
-			}
-		}
+		ISymptomCounter counter = new CountSymptomDataFromList();
+		Map<String, Integer> countedSymptoms = counter.countSymptoms(symptoms);
 		
 		FileWriter writer = new FileWriter ("result.out");
 		writer.write("headache: " + countedSymptoms.get("headache") + "\n");
