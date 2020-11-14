@@ -12,14 +12,13 @@ public class AnalyticsCounter {
 		ISymptomReader reader = new ReadSymptomDataFromFile("Project02Eclipse/symptoms.txt");
 		List<String> symptoms = reader.GetSymptoms();
 		
-		int headCount = 0;	// counts headaches
 		for (String symptom : symptoms) {
 			System.out.println("symptom from file: " + symptom);
 			if (symptom.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
+				headacheCount++;
+				System.out.println("number of headaches: " + headacheCount);
 			}
-			else if (symptom.equals("rush")) {
+			else if (symptom.equals("rash")) {
 				rashCount++;
 			}
 			else if (symptom.contains("pupils")) {
